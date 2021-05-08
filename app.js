@@ -23,10 +23,16 @@ app.post('/data/form/', function (req, res) {
              await email.Send(templateEmpresa.render());
              await email.Send(templateCliente.render());
         }
-        sendEmail().then((info)=>{
-            res.body.json({
-               status: 'foi',
-               info
+        sendEmail().then(()=>{
+            res.json({
+                status: 200,
+                mensagemStatus: "Solicitação aceita, tudo ok"     
+            })
+        }).catch((err)=>{
+            res.json({
+                status: 503,
+                mensagemStatus: "Serviço indisponivel no momento",
+                err     
             })
         })
 

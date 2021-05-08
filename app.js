@@ -12,17 +12,37 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 app.use(cors()) //{origin:'https://wwww.clf.srv.br/formulario/'}
 
 app.post('/data/form/', function (req, res) {
-    
-    const usuario = new Form(req.body);
-    const templateCliente = new TemplateClienteView(usuario);
-    const templateEmpresa = new TemplateEmpresaView(usuario);
-    const email = new EmailController(usuario);
-    
-    email.Send(templateEmpresa.render()).then(()=>{   
-        email.Send(templateCliente.render()).then(()=>{
-            res.send('email foram enviados');    
+
+    const dadaFormModel = new Form(req.body);
+    if (dadaFormModel.validadeEmail()) {
+        const templateCliente = new TemplateClienteView(dadaFormModel);
+        const templateEmpresa = new TemplateEmpresaView(dadaFormModel);
+        const email = new EmailController(dadaFormModel);
+
+        async function sendEmail() {
+            let infoEmpresa = await email.Send(templateEmpresa.render());
+            let infoCliente = await email.Send(templateCliente.render());
+
+            return {infoEmpresa, infoCliente}
+        }
+        sendEmail().then(({infoEmpresa, infoCliente})=>{
+            console.log("informormação empresa >",infoEmpresa);
+            console.log("informação cliente> ",infoCliente);
+
+            res.send({
+                respEmpresa: infoEmpresa,
+                respClient: infoCliente
+            })
+        })
+
+
+    } else {
+        res.send({
+            status: 406,
+            mensagemStatus: "Solicitação não aceita, por recurso recebido não validado"
         });
-    });
+    }
+
 })
 
 app.listen(process.env.PORT || 3000);

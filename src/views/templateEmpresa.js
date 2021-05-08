@@ -101,8 +101,7 @@ class Template {
                     <tr>
                         <td>
                             <h1>
-                                Cliente vindo do <br/> 
-                                formulario!
+                                Cliente vindo do formulario!
                             </h1>
 
                             <p style="
@@ -114,9 +113,9 @@ class Template {
                                 <br/>
                                 Nome completo: ${this._dataUsuario.getName}
                                 <br/>
-                                <p>Email: ${this._dataUsuario.getEmail}</p> 
+                                Email: ${this._dataUsuario.getEmail} 
                                 <br/>
-                                <p>Telefone: ${this._dataUsuario.getTel}</p> 
+                                Telefone: ${this._dataUsuario.getTel}
                             </p>
                             </h3>
                         </td>

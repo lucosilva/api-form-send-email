@@ -25,13 +25,11 @@ app.post('/data/form/', function (req, res) {
 
             return {infoEmpresa, infoCliente}
         }
-        sendEmail().then(({infoEmpresa, infoCliente})=>{
-            console.log("informormação empresa >",infoEmpresa);
-            console.log("informação cliente> ",infoCliente);
+        sendEmail().then((obj)=>{
+            console.log("informormação >",obj);
 
             res.send({
-                respEmpresa: infoEmpresa,
-                respClient: infoCliente
+               status: 'foi'
             })
         })
 

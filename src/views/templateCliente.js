@@ -107,14 +107,14 @@ class Template {
 
                             <p style="
 								font-weight: 500;
-								font-size: 19px;
+								font-size: 14px;
 								margin: 40px;">
                                 Olá, ${this._dataUsuario.getName}.
                                 <br />
                                 <br />
                                 Agradecemos o seu contato.
                                 <br />
-                                Recebemos suas informações e em bréve entraremos em contato com você.
+                                Recebemos suas informações e em breve entraremos em contato com você.
                             </p>
                             </h3>
                         </td>

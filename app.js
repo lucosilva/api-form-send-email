@@ -23,7 +23,7 @@ app.post('/data/form/', function (req, res) {
             let infoEmpresa = await email.Send(templateEmpresa.render());
             let infoCliente = await email.Send(templateCliente.render());
 
-            return {infoEmpresa, infoCliente}
+             return await infoEmpresa
         }
         sendEmail().then((obj)=>{
             console.log("informormação >",obj);

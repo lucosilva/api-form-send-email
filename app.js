@@ -24,7 +24,7 @@ app.post('/data/form/', function (req, res) {
              await email.Send(templateCliente.render());
         }
         sendEmail().then((info)=>{
-            res.json({
+            res.body.json({
                status: 'foi',
                info
             })

@@ -20,22 +20,18 @@ app.post('/data/form/', function (req, res) {
         const email = new EmailController(dadaFormModel);
 
         async function sendEmail() {
-            let infoEmpresa = await email.Send(templateEmpresa.render());
-            let infoCliente = await email.Send(templateCliente.render());
-
-             return await infoEmpresa
+             await email.Send(templateEmpresa.render());
+             await email.Send(templateCliente.render());
         }
-        sendEmail().then((obj)=>{
-            console.log("informormação >",obj);
-
-            res.send({
-               status: 'foi'
+        sendEmail().then((info)=>{
+            res.json({
+               status: 'foi',
+               info
             })
         })
 
-
     } else {
-        res.send({
+        res.json({
             status: 406,
             mensagemStatus: "Solicitação não aceita, por recurso recebido não validado"
         });

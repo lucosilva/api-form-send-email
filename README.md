@@ -3,11 +3,11 @@
 ## Introdução
 
 Este projeto, tem como objetivo receber dados de um formulario, e enviar estes dados para um e-mail principal e um agradecimento para o e-mail de quem preencheu o formulario.  
-<br><br>
+<br>
 Express.JS é a tecnologia ultizada para criação da API que recebe os dados. 
 <br>
 Para o envio dos e-mail foi ultilizado Nodemailer.
-<br><br><br>
+<br>
 Autor Lucas Correia.
 <br>
 <br>

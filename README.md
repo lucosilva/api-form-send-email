@@ -1,4 +1,4 @@
-# backend-form-send-email
+# API form send email
   
 ## Introdução
 
@@ -8,7 +8,7 @@ Express.JS é a tecnologia ultizada para criação da API que recebe os dados.
 <br>
 Para o envio dos e-mail foi ultilizado Nodemailer.
 <br>
-Autor Lucas Correia.
+Autor: Lucas Correia.
 <br>
 <br>
 Este projeto foi ultilizado em [frontend-clf-contabilidade](https://github.com/lucosilva/frontend-clf-contabilidade)

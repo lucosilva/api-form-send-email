@@ -42,7 +42,6 @@ app.post('/data/form/', function (req, res) {
             mensagemStatus: "Solicitação não aceita, por recurso recebido não validado"
         });
     }
-
 })
 
 app.listen(process.env.PORT || 3000);

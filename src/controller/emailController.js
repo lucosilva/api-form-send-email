@@ -18,7 +18,7 @@ class EmailController {
 
 
     async Send(template) {
-        const emailTo = template.type === 'cliente' ? this.dadosCliente.getEmail : process.env.USER_EMAIL; // dadosCliente.getEmail ou a variavel de ambiente
+        const emailTo = template.type === 'cliente' ? this.dadosCliente.getEmail : process.env.USER_EMAIL_CONTACT; // dadosCliente.getEmail ou a variavel de ambiente
 
         const configSend = {
             from: process.env.USER_EMAIL, // sender address
